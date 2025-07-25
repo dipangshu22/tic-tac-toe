@@ -1,5 +1,6 @@
 let boxes=document.querySelectorAll(".box")
 let reset=document.querySelector('#reset')
+let msg=document.querySelector(".winner")
 let turn=true;
 let win_pattern=[
 [0,1,2],
@@ -31,6 +32,13 @@ boxes.forEach((box)=>{
     
 })
 
+const show_winner=(winner)=>{
+    msg.innerText=`The winner is ${winner}`
+    
+
+
+}
+
 const checkwinner=()=>{
     for(let data of win_pattern){
         // console.log(data[0],data[1],data[2])
@@ -42,6 +50,7 @@ const checkwinner=()=>{
         if(pos1!='' && pos2!='' && pos3!=''){
             if(pos1===pos2 && pos2==pos3)
                 console.log("winner is " ,pos1)
+            show_winner(pos1)
         }
     }
 }
